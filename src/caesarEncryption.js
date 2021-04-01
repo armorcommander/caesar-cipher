@@ -1,38 +1,39 @@
-export const encryptPhrase = ( phrase, offset ) => {
+const { charValidation }= require( './validators.js' );
 
-    // console.log( `Initial phrase: ${phrase}` );
-    // console.log( `=========================================================\n\n` );
+/**
+ *
+ * @param {string} phrase
+ * @param {number} offset
+ * @returns
+ */
+const encryptPhrase = ( phrase, offset ) => {
 
     const phraseLength = phrase.length;
     var encryptedPhrase = '';
 
     var i;
-    for ( i = 0; i < phraseLength; i++ )
-    {
-        if ( Number( phrase.charCodeAt( i ) ) === 32 )
-        {
+    for ( i = 0; i < phraseLength; i++ ) {
+        var phraseChar = charValidation( Number( phrase.charCodeAt( i ) ));
+        if ( phraseChar === 32 ) {
            encryptedPhrase = encryptedPhrase + " ";
         }
-        else
-        {
-            let rawShiftedCharAsciiVal = Number( phrase.charCodeAt( i ) + offset );
-            // console.log( `\nrawShiftedCharAsciiVal: ${rawShiftedCharAsciiVal}` );
+        else {
+            let rawShiftedCharAsciiVal = Number( phraseChar + offset );
 
             let plusCheckShiftedCharAsciiVal =
                 rawShiftedCharAsciiVal > 90
                     ? ( rawShiftedCharAsciiVal - 90 ) + 64
                     : rawShiftedCharAsciiVal;
-            // console.log( `Plus Range checked plusCheckShiftedCharAsciiVal: ${plusCheckShiftedCharAsciiVal}` );
 
             let minusCHeckShiftedCharAsciiVal =
                 plusCheckShiftedCharAsciiVal < 65
                     ? 91 - ( 65 - plusCheckShiftedCharAsciiVal)
                     : plusCheckShiftedCharAsciiVal;
-            // console.log( `Minus Range checked minusCHeckShiftedCharAsciiVal: ${minusCHeckShiftedCharAsciiVal}` );
-            // console.log( `minusCHeckShiftedCharAsciiVal: ${minusCHeckShiftedCharAsciiVal}` );
 
             encryptedPhrase = encryptedPhrase + String.fromCharCode( minusCHeckShiftedCharAsciiVal );
         }
     }
     return encryptedPhrase;
 }
+
+module.exports = encryptPhrase;

@@ -1,7 +1,7 @@
 {
     "printWidth": 120,
     "trailingComma": "all",
-    "insertPragma": true,
+    "insertPragma": false,
     "singleQuote": true,
     "arrowParens": "always"
 }
