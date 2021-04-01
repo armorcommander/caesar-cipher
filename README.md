@@ -3,7 +3,9 @@
 - Encryption String
   - String input missing
   - Not a string
-  - string has invalid characters
+  - string has any invalid characters
+  - string has all invalid characters
+  - Not an empty string
   - Longer than max length
 
 - Encryption Offset

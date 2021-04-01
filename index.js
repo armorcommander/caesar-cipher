@@ -1,27 +1,25 @@
-import * as validators from "./validators.js";
+import * as validators from "./src/validators.js";
+import * as encryption from "./src/caesarEncryption.js";
 
 try {
 
-  // if(process.argv.length < 3) {
-  //   throw new Error();
-  validators.inputExists(process.argv);
-  }
+    validators.inputExists(process.argv);
 
+    const originalString = String(process.argv[2]);
+    const encryptionOffset = Number(process.argv[3]);
+    const workingString = originalString.toUpperCase();
+
+    console.log(`----- Received Arguments ---------------------------------`);
+    console.log(`originalString: ${originalString}`);
+    console.log(`encryptionOffset: ${encryptionOffset}`);
+    console.log(`workingString: ${workingString}`)
+    console.log(`---------------------------------------------------------\n`);
+
+    const encryptedPhrase = encryption.encryptPhrase( workingString, encryptionOffset );
+
+    console.log(`Initial Phrase:   ${workingString}`);
+    console.log(`Encrypted Phrase: ${encryptedPhrase}`);
 }
 catch (err) {
-  console.log(`err: ${err}`);
-  errMsg;
+    console.error(`[${err.name}] ${err.message}`);
 }
-
-const originalString = process.argv[2];
-const encryptionOffset = Number(process.argv[3]);
-const workingString = originalString.toLowerCase();
-
-console.log(`----- Received Arguments ---------------------------------`);
-console.log(`originalString: ${originalString}`);
-console.log(`encryptionOffset: ${encryptionOffset}`);
-console.log(`workingString: ${workingString}`)
-console.log(`---------------------------------------------------------`);
-
-console.log(`\n\nStep 1. Determining and listing Affected Projects`);
-console.log(`=================================================================================`);

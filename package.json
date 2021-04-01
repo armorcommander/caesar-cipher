@@ -2,6 +2,7 @@
   "name": "caesar-cipher",
   "version": "1.0.0",
   "description": "Implementation of the caesar cipher encryption algorithm",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
