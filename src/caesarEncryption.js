@@ -13,7 +13,7 @@ const encryptPhrase = ( phrase, offset ) => {
 
     var i;
     for ( i = 0; i < phraseLength; i++ ) {
-        var phraseChar = charValidation( Number( phrase.charCodeAt( i ) ));
+        var phraseChar = charValidation( Number( phrase.charCodeAt( i ) ) );
         if ( phraseChar === 32 ) {
            encryptedPhrase = encryptedPhrase + " ";
         }

@@ -1,4 +1,4 @@
-const { inputExists, phraseSize, offsetCheck, charValidation } = require( '../src/validators.js' );
+const { inputExists, phraseSize, offsetCheck, charValidation, inputValidation } = require( '../src/validators.js' );
 
 describe( 'Encryption Input Arguments Test', () => {
 
@@ -88,5 +88,15 @@ describe( 'Individual Encryption Phrase Ascii Character Test', () => {
 
     test( 'Passes with character space', () => {
         expect( charValidation( 32 ) ).toBe( 32 );
+    } );
+} );
+
+describe( 'Comprehensive Input Validation', () => {
+
+
+    const testArgArrayGoodCase = ["node", "index.js", "This is a good case", 3]
+
+    test( 'Passes with proper arguments', () => {
+        expect( inputValidation( testArgArrayGoodCase ) ).toBe( true );
     } );
 } );

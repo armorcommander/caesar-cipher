@@ -2,9 +2,9 @@
   "name": "caesar-cipher",
   "version": "1.0.0",
   "description": "Implementation of the caesar cipher encryption algorithm",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "John Hunter <armorcommander.dev@gmail.com>",

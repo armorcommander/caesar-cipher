@@ -20,7 +20,7 @@ try {
     const encryptedPhrase = encryptPhrase( workingString, encryptionOffset );
 
     console.log(`\nInitial Phrase:   ${workingString}`);
-    console.log(`Encrypted Phrase: ${encryptedPhrase}`);
+    console.log(`Encrypted Phrase: ${encryptedPhrase}\n`);
 }
 catch (err) {
     console.error(`[${err.name}] ${err.message}`);
